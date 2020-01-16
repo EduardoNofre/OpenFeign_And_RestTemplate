@@ -1,0 +1,6 @@
+## Configuração - BigBoost | BigData Corp. ##
+
+bigdatacorp:
+  token: não tem
+  data: basic_data,emails,addresses
+  api: https://bigboost.bigdatacorp.com.br

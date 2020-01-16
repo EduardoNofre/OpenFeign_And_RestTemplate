@@ -1,0 +1,8 @@
+package com.example.demo.client;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(contextId = "ViaCep", name="cepClient", url="${viacep.api}")
+public interface ClientOpenFeign {
+
+}

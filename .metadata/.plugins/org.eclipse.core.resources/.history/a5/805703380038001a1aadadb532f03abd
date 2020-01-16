@@ -1,0 +1,8 @@
+package com.example.demo.client;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(contextId = "bigDataCorpClient", name="bigDataCorp", url="${bigdatacorp.api}")
+public interface ClientOpenFeign {
+
+}

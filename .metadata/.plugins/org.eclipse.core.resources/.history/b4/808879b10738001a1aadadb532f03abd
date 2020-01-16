@@ -1,0 +1,11 @@
+package com.example.demo.exception;
+
+public class ViaCepException {
+
+	public ViaCepException(String message) {
+		super(message);
+	}
+
+	
+	
+}

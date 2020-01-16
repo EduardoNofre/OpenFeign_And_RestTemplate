@@ -1,0 +1,18 @@
+package com.example.demo.client;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.example.demo.model.CepModel;
+
+import feign.Headers;
+
+@FeignClient(url = "https://viacep.com.br/ws/", name = "viaCep")
+public interface ClientOpenFeign {
+
+
+	@Headers("Content-Type: application/json")
+	@GetMapping("{cep}/json")
+	CepModel buscaCepClient(@PathVariable String cepClient);
+}

@@ -1,0 +1,31 @@
+package com.example.demo.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.client.ClientOpenFeign;
+import com.example.demo.exception.ViaCepException;
+import com.example.demo.model.CepModel;
+
+@Service
+public class ServiceOpenFeign {
+
+	@Autowired
+	private ClientOpenFeign clientOpenFeign;
+
+	public Optional<CepModel> consultaCep(String cep) {
+
+		Optional<CepModel> CepModelOptional = Optional.ofNullable(clientOpenFeign.buscaCepClient(cep));
+		
+		CepModelOptional.ifPresent(e -> e.getCep());
+
+		if (CepModelOptional.ifPresent(e -> System.out.println(e.getCep()))) {
+
+			return CepModelOptional;
+		}
+
+		throw new ViaCepException("Verifica o cep passado como parametro. s%");
+	}
+}
