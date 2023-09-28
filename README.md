@@ -18,7 +18,7 @@ Em resumo, o OpenFeign é uma biblioteca de clientes HTTP que permite que os des
    - status: 500 INTERNAL_SERVER_ERROR
    - status: 405 METHOD_NOT_ALLOWED
    - status: 404 NOT_FOUND
-   - 
+     
 ###  Ainda temos essa API java-OpenFeign-exemplo.
   - Essa Api é um exemplo simples utilizando VIA cep como exemplo.
 
