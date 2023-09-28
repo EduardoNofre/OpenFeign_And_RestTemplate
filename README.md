@@ -21,6 +21,7 @@ Em resumo, o OpenFeign é uma biblioteca de clientes HTTP que permite que os des
      
 ###  Ainda temos essa API java-OpenFeign-exemplo.
   - Essa Api é um exemplo simples utilizando VIA cep como exemplo.
+  - Os endpoint estão mapeado no yaml do java-OpenFeign-exemplo
 
 
 
