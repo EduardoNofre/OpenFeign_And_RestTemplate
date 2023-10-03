@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.client.app</groupId>
-	<artifactId>client-digital</artifactId>
+	<artifactId>FeignClient</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>client-digital</name>
-	<description>client-digital</description>
+	<name>FeignClient</name>
+	<description>FeignClient</description>
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2022.0.4</spring-cloud.version>
