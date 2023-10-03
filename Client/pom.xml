@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.client.teste.app</groupId>
-	<artifactId>client-teste-exceptions</artifactId>
+	<artifactId>Client</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>client-teste-exceptions</name>
-	<description>client-digital</description>
+	<description>Client</description>
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2022.0.4</spring-cloud.version>
