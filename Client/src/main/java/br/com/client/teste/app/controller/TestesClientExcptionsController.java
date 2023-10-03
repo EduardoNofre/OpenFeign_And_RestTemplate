@@ -21,8 +21,8 @@ public class TestesClientExcptionsController {
 	@Autowired
 	private TestesClientExcptionsService testesClientExcptionsService;
 
-	@Operation(summary = "buscar excptions", description = "BUSCAR CODIGO EXCPTIONS", tags = {
-			" numero 0 = 409 ,numero 1 = 204 and numero > 1 = sucesso " })
+	@Operation(summary = "buscar codigo excptions", description = "http://localhost:8081/client/excptions/", tags = {
+			" codigo 0 = 409 ,codigo 1 = 204 and codigo > 1 = sucesso " })
 	@GetMapping("/{codigo}")
 	public ResponseEntity<String> numeroExcptions(
 			@Parameter(description = "Codigo excptions", required = true) @PathVariable Integer codigo)
