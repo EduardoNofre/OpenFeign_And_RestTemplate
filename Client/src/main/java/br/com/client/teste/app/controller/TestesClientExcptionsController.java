@@ -21,7 +21,7 @@ public class TestesClientExcptionsController {
 	@Autowired
 	private TestesClientExcptionsService testesClientExcptionsService;
 
-	@Operation(summary = "buscar codigo excptions", description = "http://localhost:8081/client/excptions/", tags = {
+	@Operation(summary = "buscar codigo excptions", description = "http://localhost:8081/client/swagger-ui/index.html", tags = {
 			" codigo 0 = 409 ,codigo 1 = 204 and codigo > 1 = sucesso " })
 	@GetMapping("/{codigo}")
 	public ResponseEntity<String> numeroExcptions(
