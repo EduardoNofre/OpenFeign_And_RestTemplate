@@ -18,24 +18,26 @@ import io.swagger.v3.oas.annotations.Parameter;
 @RequestMapping("/excptions/")
 public class TestesClientExcptionsController {
 
-	
 	@Autowired
 	private TestesClientExcptionsService testesClientExcptionsService;
 
-	@Operation(summary = "buscar excptions", description = "BUSCAR CODIGO EXCPTIONS", tags = { " numero 0 = 409 ,numero 1 = 204 and numero > 1 = sucesso " })
+	@Operation(summary = "buscar excptions", description = "BUSCAR CODIGO EXCPTIONS", tags = {
+			" numero 0 = 409 ,numero 1 = 204 and numero > 1 = sucesso " })
 	@GetMapping("/{codigo}")
 	public ResponseEntity<String> numeroExcptions(
-			@Parameter(description="Codigo excptions", required=true) @PathVariable Integer codigo) throws ServiceException, ServiceNoContentExcetion {
-		
+			@Parameter(description = "Codigo excptions", required = true) @PathVariable Integer codigo)
+			throws ServiceException, ServiceNoContentExcetion {
+
 		return ResponseEntity.status(HttpStatus.OK).body(testesClientExcptionsService.retornaExcptions(codigo));
-		
+
 	}
-	
-	@Operation(summary = "CREATED", description = "BUSCAR CODIGO EXCPTIONS", tags = { " numero 0 = 409 ,numero 1 = 204 and numero > 1 = sucesso " })
+
+	@Operation(summary = "CREATED", description = "BUSCAR CODIGO EXCPTIONS", tags = {
+			" numero 0 = 409 ,numero 1 = 204 and numero > 1 = sucesso " })
 	@GetMapping("/criar")
 	public ResponseEntity<String> save() throws ServiceException, ServiceNoContentExcetion {
-		
+
 		return ResponseEntity.status(HttpStatus.CREATED).body("teste");
-		
+
 	}
 }

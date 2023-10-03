@@ -14,7 +14,7 @@ public class TestesClientExcptionsService {
 			throw new ServiceException("Erro regra de negocio");
 		} else if (codigo == 1) {
 			throw new ServiceNoContentExcetion("vazio");
-		}else {		
+		} else {
 			return "sucesso";
 		}
 	}
