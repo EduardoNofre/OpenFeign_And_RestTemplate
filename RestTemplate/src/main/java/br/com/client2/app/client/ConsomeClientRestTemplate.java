@@ -11,10 +11,8 @@ import br.com.client2.app.handle.ServiceException;
 import br.com.client2.app.handle.ServiceNoContentExcetion;
 import br.com.client2.app.util.Util;
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 
 @Data
-@Slf4j
 @Component
 public class ConsomeClientRestTemplate {
 

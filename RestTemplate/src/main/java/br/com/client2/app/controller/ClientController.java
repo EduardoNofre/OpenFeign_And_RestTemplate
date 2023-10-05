@@ -21,7 +21,7 @@ public class ClientController {
 	@Autowired
 	private ClientService clientService;
 
-	@Operation(summary = "buscar excptions", description = "BUSCAR CODIGO EXCPTIONS COM BASIC AUTORIZAÇÃO", tags = {
+	@Operation(summary = "REST TEMPLATE BASIC AUTH", description = "BUSCAR CODIGO EXCPTIONS COM BASIC AUTORIZAÇÃO", tags = {
 			" numero 0 = 409 ,numero 1 = 204 and numero > 1 = sucesso " })
 	@GetMapping("basic/{codigo}")
 	public ResponseEntity<String> numeroBasicAuth(
