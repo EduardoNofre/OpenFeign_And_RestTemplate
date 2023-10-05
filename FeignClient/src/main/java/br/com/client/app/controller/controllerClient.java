@@ -16,21 +16,21 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 
 @RestController
-@RequestMapping("/gatos/")
+@RequestMapping("/openfeign/")
 public class controllerClient {
 
 	@Autowired
 	private ServiceClient serviceClient;
 
-	@Operation(summary = "BUSCAR", description = "BUSCAR GATOS PASSANDO COMO PARAMETRO A QUANTIDADE DESEJADA ", tags = {
+	@Operation(summary = " OPEN FEIGN BASIC AUTH ", description = "BUSCAR GATOS PASSANDO COMO PARAMETRO A QUANTIDADE DESEJADA ", tags = {
 			"quantidade de gatos por qtd" })
-	@GetMapping("/{qtd}")
+	@GetMapping("/gatos/{qtd}")
 	public ResponseEntity<List<CatDTO>> qtdBuscar(
 			@Parameter(description = "Quantidade de gatos", required = true) @PathVariable Integer qtd) {
 		return ResponseEntity.status(HttpStatus.OK).body(serviceClient.buscarGatos(qtd));
 	}
 
-	@Operation(summary = "BUSCAR", description = "BUSCAR A EXCPTIONS DESEJADA ", tags = {
+	@Operation(summary = " OPEN FEIGN BASIC AUTH ", description = "BUSCAR A EXCPTIONS DESEJADA ", tags = {
 			"numero 0 = 409 ,numero 1 = 204 and numero > 1 = sucesso " })
 	@GetMapping("excptions/{numero}")
 	public ResponseEntity<String> buscarExcptions(
@@ -39,7 +39,7 @@ public class controllerClient {
 		return ResponseEntity.status(HttpStatus.OK).body(serviceClient.buscarExcptionsNumero(numero));
 	}
 
-	@Operation(summary = "STATUS", description = "retorna somente status ", tags = {"status 201"})
+	@Operation(summary = " OPEN FEIGN BASIC AUTH ", description = "retorna somente status ", tags = {"status 201"})
 	@GetMapping("/status")
 	public ResponseEntity<String> status() {
 

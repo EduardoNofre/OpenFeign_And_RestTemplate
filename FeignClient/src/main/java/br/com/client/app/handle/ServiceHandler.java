@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.client.ResourceAccessException;
+import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
@@ -45,22 +46,37 @@ public class ServiceHandler extends ResponseEntityExceptionHandler implements Se
 
 		if (e.status() == 404) {
 			status = e.status();
-			msg = Util.feingDetailMessage(e.getMessage(),"error");
+			msg = Util.feingDetailMessage(e.getMessage(), "error");
 		}
 
 		if (e.status() == 405) {
 			status = e.status();
-			msg = Util.feingDetailMessage(e.getMessage(),"detail");
+			msg = Util.feingDetailMessage(e.getMessage(), "detail");
 		}
 
 		if (e.status() == 409) {
 			status = e.status();
-			msg = Util.feingDetailMessage(e.getMessage(),"errorDescription");
+			msg = Util.feingDetailMessage(e.getMessage(), "errorDescription");
 		}
 
 		if (e.status() == -1) {
 			status = 500;
 			msg = e.getCause() + e.request().url();
+		}
+
+		return montaMsg(msg, HttpStatus.valueOf(status));
+	}
+
+	@ExceptionHandler(RestClientResponseException.class)
+	public ResponseEntity<String> handleRestClientResponseException(RestClientResponseException e) {
+
+		String msg = null;
+		int status = 0;
+
+		if (e.getStatusCode().value() == 409) {
+
+			msg = Util.feingDetailMessage(e.getMessage(), "errorDescription");
+			status = e.getStatusCode().value();
 		}
 
 		return montaMsg(msg, HttpStatus.valueOf(status));
