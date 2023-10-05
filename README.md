@@ -14,6 +14,7 @@ Em resumo, o OpenFeign é uma biblioteca de clientes HTTP que permite que os des
     - status: 204 no content -Observação OpenFeign parece não capturar ou  utilizar 404 not found.
     - status: 409 utlizado e definido para regra de negocio.
     - status: 200 ok em caso de sucesso.
+    - status: 201 ok em caso de sucesso inserção de dados no banco.
     - Os endpoint estão mapeado no properties do Client
 ### *ConsomeClient* este consome as informaçoes *Client* 
  - *O ConsomeClient* tambem esta tratando Exception de erro em tempo de execução:
