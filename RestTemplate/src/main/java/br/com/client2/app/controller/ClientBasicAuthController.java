@@ -10,24 +10,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.client2.app.handle.ServiceException;
 import br.com.client2.app.handle.ServiceNoContentExcetion;
-import br.com.client2.app.service.ClientService;
+import br.com.client2.app.service.ClientBasicAuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 
 @RestController
-@RequestMapping("/client/")
-public class ClientController {
+@RequestMapping("/client/basic/auth/")
+public class ClientBasicAuthController {
 
 	@Autowired
-	private ClientService clientService;
+	private ClientBasicAuthService clientBasicAuthService;
 
-	@Operation(summary = "REST TEMPLATE BASIC AUTH", description = "BUSCAR CODIGO EXCPTIONS COM BASIC AUTORIZAÇÃO", tags = {
+	@Operation(summary = "Recupera token ", description = "BUSCAR CODIGO EXCPTIONS COM BASIC AUTORIZAÇÃO DEFAULT DO SPRING BOOT", tags = {
 			" numero 0 = 409 ,numero 1 = 204 and numero > 1 = sucesso " })
 	@GetMapping("basic/{codigo}")
 	public ResponseEntity<String> numeroBasicAuth(
 			@Parameter(description = "Codigo excptions", required = true) @PathVariable Integer codigo)
 			throws ServiceException, ServiceNoContentExcetion {
 
-		return ResponseEntity.status(HttpStatus.OK).body(clientService.consomeClientBasicAuth(codigo));
+		return ResponseEntity.status(HttpStatus.OK).body(clientBasicAuthService.consomeClientBasicAuth(codigo));
 	}
 }

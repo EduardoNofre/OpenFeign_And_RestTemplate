@@ -3,6 +3,7 @@ package br.com.client2.app.util;
 import java.util.Base64;
 
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 
 public abstract class Util {
 
@@ -22,11 +23,12 @@ public abstract class Util {
 		return httpHeaders;
 	}
 
-
 	
-	public static String basicAuth(String usuario, String senha) {
-		String plainCreds = usuario + ":" + senha;
-		return "Basic " + Base64.getEncoder().encodeToString(plainCreds.getBytes());
+	public static HttpHeaders bearerToken(String accessToken) {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		headers.set("Authorization", "Bearer "+accessToken);
+		
+		return headers;
 	}
-
 }
