@@ -48,26 +48,5 @@ public class ClientBasicAuthService {
 		return consomeClientRestTemplate.basicAuthorizationRestTemplate(urlFormt, usuario, senha);
 	}
 
-	public String consomeClientBearerToken(DadosDTO dadosDTO) throws ServiceException, ServiceNoContentExcetion {
-
-		return consomeClientRestTemplate.bearerTokenRestTemplate(urlToken, dadosDTO);
-	}
-
-	public String consomeClientBearerTokenAuthGet(int codigo, String token)
-			throws ServiceException, ServiceNoContentExcetion {
-
-		return consomeClientRestTemplate.bearerTokenAuthRestTemplate(urlBearerToken, codigo, token);
-	}
-
-	public String consomeClientBearerTokenAuthPost(int codigo, String token)
-			throws ServiceNoContentExcetion {
-
-		return consomeClientRestTemplate.bearerTokenAuthRestTemplate(urlBearerToken, codigo, token);
-	}
-
-	public String consomeClientBearerTokenAuthDelete(int codigo, String token)
-			throws ServiceNoContentExcetion {
-
-		return consomeClientRestTemplate.bearerTokenAuthRestTemplate(urlBearerToken, codigo, token);
-	}
+	
 }
