@@ -7,7 +7,7 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
 
 @SpringBootApplication
-@OpenAPIDefinition(info = @Info(title = "Micro Service consome ", version = "1.0",description = " Client open feing "))
+@OpenAPIDefinition(info = @Info(title = "Micro Service consome ", version = "1.0",description = " Client "))
 public class ClientBearerTokenApplication {
 
 	public static void main(String[] args) {

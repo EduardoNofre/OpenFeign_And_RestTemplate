@@ -9,12 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.jwt.bearer.app.dto.LoginDTO;
 import br.com.jwt.bearer.app.service.UsuarioService;
-import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
-import io.swagger.v3.oas.annotations.security.SecurityScheme;
 
 @RestController
-@SecurityScheme(name = "bearerAuth", type = SecuritySchemeType.HTTP, bearerFormat = "JWT", scheme = "bearer")
-public class AuthController {
+public class Login {
 
 	@Autowired
 	private UsuarioService usuarioService;
