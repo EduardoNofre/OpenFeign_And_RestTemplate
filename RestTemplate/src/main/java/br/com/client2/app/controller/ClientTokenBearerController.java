@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,13 +15,11 @@ import br.com.client2.app.dto.DadosDTO;
 import br.com.client2.app.handle.ServiceException;
 import br.com.client2.app.handle.ServiceNoContentExcetion;
 import br.com.client2.app.service.ClientBearerTokenService;
-import feign.Param;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 
 @RestController
 @RequestMapping("/client/token/bearer/")
-public class ClientTokenBearerAuthController {
+public class ClientTokenBearerController {
 	
 	@Autowired
 	private ClientBearerTokenService clientBearerTokenService;
@@ -35,10 +34,10 @@ public class ClientTokenBearerAuthController {
 
 	@Operation(summary = " REST TEMPLATE BEARER TOKEN AUTH GET ", description = " BEARER TOKEN AUTH ", tags = {
 			" NUMERO 0 = 409 ,NUMERO 1 = 204 AND NUMERO > 1 = SUCESSO " })
-	@GetMapping("/get")
+	@GetMapping("/get/{codigo}/{token}")
 	public ResponseEntity<String> bearerTokenAuthGet(
-			@Parameter(description = "Codigo excptions", required = true) @Param Integer codigo,
-			@Parameter(description = "token", required = true) @Param String token)
+			@PathVariable(required = false) Integer codigo,
+			@PathVariable(required = false) String token)
 			throws ServiceException, ServiceNoContentExcetion {
 
 		return ResponseEntity.status(HttpStatus.OK).body(clientBearerTokenService.consomeClientBearerTokenAuthGet(codigo, token));
@@ -46,10 +45,10 @@ public class ClientTokenBearerAuthController {
 
 	@Operation(summary = " REST TEMPLATE BEARER TOKEN AUTH POST ", description = " BEARER TOKEN AUTH ", tags = {
 			" NUMERO 0 = 409 ,NUMERO 1 = 204 AND NUMERO > 1 = SUCESSO " })
-	@PostMapping("/post")
+	@PostMapping("/post/{codigo}/{token}")
 	public ResponseEntity<String> bearerTokenAuthPost(
-			@Parameter(description = "Codigo excptions", required = true) @Param Integer codigo,
-			@Parameter(description = "token", required = true) @Param String token)
+			@PathVariable(required = false) Integer codigo,
+			@PathVariable(required = false) String token)
 			throws ServiceNoContentExcetion {
 
 		return ResponseEntity.status(HttpStatus.OK).body(clientBearerTokenService.consomeClientBearerTokenAuthPost(codigo, token));
@@ -57,10 +56,10 @@ public class ClientTokenBearerAuthController {
 
 	@Operation(summary = " REST TEMPLATE BEARER TOKEN AUTH DELETE ", description = " BEARER TOKEN AUTH ", tags = {
 			" NUMERO 0 = 409 ,NUMERO 1 = 204 AND NUMERO > 1 = SUCESSO " })
-	@DeleteMapping("/delete")
+	@DeleteMapping("/delete/{codigo}/{token}")
 	public ResponseEntity<String> bearerTokenAuthDelete(
-			@Parameter(description = "Codigo excptions", required = true) @Param Integer codigo,
-			@Parameter(description = "token", required = true) @Param String token)
+			@PathVariable(required = false) Integer codigo,
+			@PathVariable(required = false) String token)
 			throws  ServiceNoContentExcetion {
 
 		return ResponseEntity.status(HttpStatus.OK).body(clientBearerTokenService.consomeClientBearerTokenAuthDelete(codigo, token));
