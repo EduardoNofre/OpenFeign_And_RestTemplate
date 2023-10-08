@@ -1,5 +1,7 @@
 package br.com.jwt.bearer.app.controller;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,18 +25,26 @@ public class ExecptionsController {
 	@Autowired
 	private ExecptionsService execptionsService;
 
-	@DeleteMapping("{codigo}")
-	public ResponseEntity<String> delete(
-			@Parameter(description = " CODIGO EXCPTIONS - DELETE ", required = true) @PathVariable Long codigo)
+	
+	@GetMapping()
+	public ResponseEntity<String> getParam(
+			@Parameter(description = " CODIGO EXCPTIONS - GET - COM PARAMENTRO ", required = true) @PathParam(value = "codigo") Long codigo)
 			throws ServiceException, ServiceNoContentExcetion {
-		return ResponseEntity.status(HttpStatus.OK).body(execptionsService.delete(codigo));
+		return ResponseEntity.status(HttpStatus.OK).body(execptionsService.get(codigo));
 	}
-
+	
 	@GetMapping("{codigo}")
 	public ResponseEntity<String> get(
 			@Parameter(description = " CODIGO EXCPTIONS - GET ", required = true) @PathVariable Long codigo)
 			throws ServiceException, ServiceNoContentExcetion {
 		return ResponseEntity.status(HttpStatus.OK).body(execptionsService.get(codigo));
+	}
+	
+	@DeleteMapping("{codigo}")
+	public ResponseEntity<String> delete(
+			@Parameter(description = " CODIGO EXCPTIONS - DELETE ", required = true) @PathVariable Long codigo)
+			throws ServiceException, ServiceNoContentExcetion {
+		return ResponseEntity.status(HttpStatus.OK).body(execptionsService.delete(codigo));
 	}
 
 	@PostMapping("{codigo}")
