@@ -1,6 +1,0 @@
-## Configuração - via Cep ##
-
-viacep:
-  token: não tem
-  data: filter ou qualquer outro item
-  api: "https://viacep.com.br/ws/"
