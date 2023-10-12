@@ -15,7 +15,7 @@ RestTemplate normalmente é usado como um componente compartilhado. Entretanto, 
 ## Aqui temos exemplo duas API o Client e o consomeClient:
 ### *Client* disponibiliza os endpoints para o *consomeClient*
  - *Client*, esse client retorna algumas handle Exception:
-    - status: 204 no content -Observação OpenFeign parece não capturar ou  utilizar 404 not found.
+    - status: 204 no content -Observação OpenFeign parece não capturar ou  utilizar 204 no content.
     - status: 409 utlizado e definido para regra de negocio.
     - status: 200 ok em caso de sucesso.
     - status: 201 ok em caso de sucesso inserção de dados no banco.
